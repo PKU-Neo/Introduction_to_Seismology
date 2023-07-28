@@ -1,0 +1,271 @@
+\documentclass[twoside,titlepage,hyperref,UTF8,12pt]{ctexart}
+\usepackage{geometry}
+\usepackage{upgreek}
+\usepackage{bm}
+\usepackage{appendix}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{bm}
+
+\geometry{a4paper,scale=0.75}
+
+\title{\linespread{1.5}\Huge\bfseries 地震概论\\\huge\mdseries Introduction to Seismology}
+\author{\LARGE Kechang Zhao\thanks{School of Earth and Space Sciences, Peking University}}
+\date{\Large\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{地震学的研究范围和历史}
+\begin{itemize}
+\item 上世纪约有\textbf{200万人}死于地震，预计21世纪将有\textbf{1500万人}死于地震。
+\item 地震学是关于地震的科学，是一门应用物理学，而不是地质学。
+\item 地震按震源深度分类
+    \begin{enumerate}
+        \item \textbf{浅源地震}：震源深度小于\textbf{60km}，也称\textbf{正常深度地震}；
+        \item \textbf{中源地震}：震源深度在60km到\textbf{300km}之间；
+        \item \textbf{深源地震}：震源深度大于\textbf{300km}，已知最深记录为700km；
+        \item 有时将后两者统称为\textbf{深震}；
+    \end{enumerate}
+\item 地震按震中距分类
+    \begin{enumerate}
+        \item \textbf{地方震}：震中距小于\textbf{100km}；
+        \item \textbf{近震}：震中距小于\textbf{1000km}；
+        \item \textbf{远震}：震中距大于1000km；
+    \end{enumerate}
+\end{itemize}
+\section{地震波}
+\begin{itemize}
+    \item 在固体中可以传播纵波和横波，而\textbf{在液体、气体中只能传播纵波}（无剪切应变）。
+    \item 在无界弹性介质中，存在两种基本类型的弹性波：
+        \begin{enumerate}
+            \item \textbf{纵波}：质点振动方向和震动（能量）传播方向一致，是一种无旋波；
+            \item \textbf{横波}：质点振动方向和震动（能量）传播方向垂直，是一种无散的等容波；
+            \item \textbf{纵波速度比横波大}（一般而言约为\bm{$\sqrt{3}$}倍，在\textbf{泊松介质}中严格相等），因而在地震记录上纵波总是先到达，由此\textbf{纵波也称为P波}（Primary wave），\textbf{横波也称为S波}（Secondary wave）。
+        \end{enumerate}
+    \item 任何弹性波都可以分解为体变和切变，\textbf{与纵波对应的是体变，与横波对应的是切变}。
+    \item 三分量地震图上P波垂直分量较强，S波水平分量较强；
+    \item S波的低频成分较P波丰富；
+    \item 面波的性质
+        \begin{enumerate}
+            \item 面波是沿地球表面传播的，在与介面垂直的方向振幅急剧衰减；
+            \item 在地震记录上，面波的振幅一般比体波大；
+            \item 面波的能量被捕获在表面才能沿着或近地表传播，如\textbf{天坛的回音璧}；
+            \item 不同周期的面波，其渗透深度不同，\textbf{周期越大，渗透深度越大}；
+            \item \textbf{在半无限的均匀介质中，不产生勒夫波，而且它产生的瑞利波没有频散}，因而若地震记录中出现了勒夫波或有频散的瑞利波，则说明地下的介质是不均匀的或成层的。
+        \end{enumerate}
+\end{itemize}
+\section{地震波传播理论}
+\begin{itemize}
+    \item 若介质是分层的，当地震波由低速一方向高速一方入射时，还存在一种波，叫做\textbf{首波}（Head Wave，又称侧面波、折射波）。虽然首波传播路径比直达波长，但因为首波在分界面上以深层介质中的速度来传播，因而超过一定临界距离后，首波会比直达波率先到达台站。
+    \item 设震动由$A$点出发，沿途经$S$传播到$B$，传播速度是$v(x, y, z)$，所用的时间是$t$，则费马原理就是
+        \begin{equation}
+            \delta t = \delta\int_{A}^{B} \frac{dS}{v} = 0
+        \end{equation}
+        $\delta$是变分，根据这一原理，若$A$和$B$各在一个分界面的两边或一边，就立刻得到斯涅耳的折射或反射定律。
+    \item 地震学中Fermat原理指地震波总是沿时间最短的路径传播，是地震波的\textbf{高频近似解（也称短波近似解，高频与短波等效）}，当近似条件不满足时，必须严格求解原始的波动方程。
+    \item Fermat定理在地震学中的应用——\textbf{Snell定律}
+        \begin{equation}
+            \frac{\sin \theta_{inc}}{v_{inc}} = \frac{\sin \theta_{ref}}{v_{ref}} =  \frac{\sin \theta_t}{v_t}
+        \end{equation}
+        其中$inc$表示入射，$ref$表示反射，$t$表示折射。在存在波形转换时，该定律仍然成立。远震情况下，地球曲率不可忽略，Snell定律修正为
+        \begin{equation}
+            \frac{r_1 \sin \theta_1}{v_1} = \frac{r_2 \sin \theta_2}{v_2} = \cdots = \frac{r_i \sin \theta_i}{v_i} \equiv p
+        \end{equation}
+    \item \textbf{走时方程}与\textbf{走时曲线}（主要讨论水平层状物质，这里写出震源不在地表的一般情形）
+        \begin{enumerate}
+            \item 直达波走时方程
+                \begin{equation}
+                    t(x) = \frac{\sqrt{H^2 + x^2}}{v_1}
+                \end{equation}
+            \item 反射波走时方程（使用\textbf{像点}解题）
+                \begin{equation}
+                    t(x) = \frac{\sqrt{{(2h - H)}^2 + x^2}}{v_1}
+                \end{equation}
+            \item 首波走时方程
+                \begin{equation}\label{eq:headwave}
+                    t(x) = \frac{2h-H}{v_1 \cos \theta_c} + \frac{x - (2h - H) \tan \theta_c}{v_2}
+                \end{equation}
+                其中，临界角$\theta_c$由下式确定
+                \begin{equation}\label{eq:criticalangle}
+                    \theta_c = \arcsin \frac{v_1}{v_2}
+                \end{equation}
+        \end{enumerate}
+        上述公式中，$H$是震源深度，$h$是分界面深度，$v_1$是上层速度，$v_2$是下层速度，$\theta_c$是入射角，$x$是震中距。方程\ref{eq:headwave} 在$x > 2h \tan \theta_c$时成立，因为此时才能产生首波，$2h\tan\theta_c$称为第一临界震中距。而当首波的走时开始最短时，此$x_M$称为第二临界震中距,我们可以求出
+        \begin{equation}
+            x_M = 2h \sqrt{\frac{v_2 + v_1}{v_2 - v_1}}
+        \end{equation}
+        此外，由于$P$波和$S$波传播速度不同，由其直达波速度差可估算震中距，其公式为
+        \begin{equation}\label{eq:epicentraldistance}
+            x = \frac{\alpha \beta}{\alpha - \beta} (T_S - T_P)
+        \end{equation}
+        该公式在$x \gg H$时成立。
+
+        \textbf{【例题】} （教材P41 T2）一个震源深度$H$为10km的地震，多个区域台站记到的$P_n$波走时直线的斜率为0.125s/km，截距为$3\sqrt{7}$s（约8s），若均匀地壳内$P$波速度$v_1$已知为6km/s，试估计地幔顶部的$P$波速度$v_2$和地壳厚度$h$。
+
+        \textbf{解：}由方程\ref{eq:headwave} 及方程\ref{eq:criticalangle} 将首波走时方程化为直线方程标准形式
+        \begin{equation}
+            t(x) = \frac{1}{v_2} x + \frac{(2h - H)\cos \theta_c}{v_1}
+        \end{equation}
+        由题设条件，将相应系数带入上式，可求得$v_2$ = 8km/s， $h$ = 41km。
+    \item 硬度越大的介质中，地震波传播速度越快
+    \item \textbf{\bm{$P$}波只能和\bm{$S_V$}波相互转换}，不能和$S_H$波相互转换
+    \item \textbf{震相}：K外核中的纵波，I、J内核中的纵波、横波，c、i外核、内核界面上的外反射
+\end{itemize}
+\section{地球内部的结构}
+\begin{itemize}
+    \item \textbf{1522年}，\textbf{麦哲伦}完成第一次环球航行，\textbf{地球是圆的这个概念宣告成立}。
+    \item 1798年，英国卡文迪许确定地球平均密度为\textbf{5.45}。
+    \item 地壳仅仅是指地球的最外固体层，\textbf{并不是地球最硬的部分}。
+    \item \textbf{1909年}，\textbf{地壳}被发现，提出了\textbf{莫霍面（M面）}的概念（壳幔界面）。
+    \item \textbf{1906年}，地球\textbf{液体外核}被发现。
+    \item \textbf{1914年}，提出\textbf{古登堡面（G面）}的概念（幔核界面）。
+    \item \textbf{1936年}，地球\textbf{固体内核}被发现。
+\end{itemize}
+\section{地震机制}
+\begin{itemize}
+    \item 断层几何术语：断层上盘/下盘、走向（\textbf{以沿走向上盘在右上方为标准确定},以\textbf{正北向顺时针旋转到走向的角度}表示，范围是$\left [0, 2\pi \right )$）、倾角、滑移（\textbf{上盘相对于下盘的滑动方向}，范围是$\left (-\pi, \pi\right ]$）。
+    \item 断层分类：\textbf{正断层、逆断层、走滑断层（左旋、右旋）}、斜滑断层
+    \item 地震效率范围为\textbf{7.5\%--15\%}，计算方法为
+        \begin{equation}
+            \eta = \frac{E_{\text{地震}}}{E_{\text{弹性应变}}} = \frac{E_{\text{地震}}}{E_{\text{地震}} + E_{\text{摩擦热能}}}
+        \end{equation}
+    \item \textbf{震源机制解}（Focal Mechanism Solution）：要求会根据震源辐射图案（Beach Ball Model）判断震源类型。\textbf{正断层中间为白色，逆断层中间为黑色，走滑断层为均匀四象限。}断面坡度越大越容易产生正断层，越小越容易产生逆断层。
+    \item \textbf{板块构造学说}：大陆漂移、海底扩张、板块构造\\
+        【注意】\textbf{地壳不等于板块，板块是地壳和上部地幔的坚硬部分的总称。}地壳漂浮在软流层上做相互运动。\textbf{大陆不是穿过海洋漂移，而是随着海洋一起漂移。}
+    \item 边界类型：扩散边界、汇聚边界、转换边界
+    \item 洋壳与陆壳相撞时，\textbf{洋壳俯冲}，\textbf{陆壳隆起}。
+    \item \textbf{正断层和走滑断层位于洋中脊，逆断层位于洋沟。}
+    \item 日本、意大利、智利、秘鲁及土耳其是震感非常强烈的国家，\textbf{没有我国}。
+    \item 地震按成因分类有\textbf{天然地震}和\textbf{人工地震}，天然地震又分：\textbf{构造地震、火山地震和陷落地震}。\textbf{破坏性地震主要属于构造地震}。
+    \item 地下核试验P波成分更多，天然地震S波成分更多。
+\end{itemize}
+\section{地震仪及地震基本参数的确定}
+\begin{itemize}
+    \item 张衡的候风地动仪实质上是\textbf{验震器}。
+    \item \textbf{1880--1890年}，第一架科学意义上的\textbf{地震仪诞生}。
+    \item \textbf{里氏震级}$M_L$是\textbf{据震中100km}的地方用伍德-安德森地震仪测量到的以\textbf{微米}为单位的\textbf{最大地震波振幅}$A$以10为底的对数。
+        \begin{equation}
+            \bm{M_L = \log_{10}A}
+        \end{equation}
+    \item \textbf{震级饱和}：当里氏震级达到6.5级，地震波振幅不再随震级增大而增大。
+    \item \textit{（不要求）}面波震级可对远距离的中强地震作出补充（低频衰减慢），但不可用于深源地震，汶川地震8.0级实际上指的是面波震级。
+    \item \textbf{地震矩}定义为岩石弹性刚度、断层面积和滑动位移的乘积。
+    \item 一般认为，震级的\textbf{测定精度在0.3左右}。
+\end{itemize}
+\section{地震预报}
+\begin{itemize}
+    \item 地震预报三要素：时间、地点及强度。
+    \item 地震预报方法：地震地质方法、地震统计方法、地震前兆方法。
+    \item 地震自救：冷静的头脑（安静休息）、科学的方法（\textbf{在一层立即往外冲，在高层主震过后迅速向楼下跑}）、运气。
+\end{itemize}
+\section{宏观地震学}
+\begin{itemize}
+    \item 影响地震灾害的因素：地震震级、人口密集、地震发生时间、房屋抗震性能。
+    \item 近震对低矮建筑影响较大，远震对高层建筑危害较大。这是因为\textbf{高层建筑的固有振动周期更长，容易受到低频地震波的影响。}
+    \item \textbf{地震烈度}：地震烈度是指地震波在地表上的强度，应当和地震震级严格区分，其还受震中距、震源深度等影响。一次地震中烈度最大的地区称为\textbf{极震区}。
+    \item \textbf{我国烈度测量采用十二度表}，但并不是所有国家均如此。
+    \item \textbf{基本烈度}：一个地区未来50年内一般场地条件下可能遭受的具有10\%超越概率的地震烈度值，相当于\textbf{475年一遇}的最大地震的烈度值，亦称偶遇烈度或中震烈度。
+    \item \textbf{湖南、浙江}是全国的少震地区。直辖市中，\textbf{重庆}是少震地区。
+    \item 决定强地面震动的因素：地面运动最大加速度、地面运动的周期、强震持续的时间。
+    \item 面波比体波衰减慢、振幅大、周期长、传播远，建筑物破坏主要由面波造成。
+\end{itemize}
+
+\section{勘探地震学}
+\begin{itemize}
+    \item \textbf{地球物理勘探（简称物探）方法主要有：重力勘探、磁性勘探、电法勘探、地震勘探。}其中地震勘探应用最广泛，占\textbf{97\%}。
+    \item 勘探地震学最初采用\textbf{折射}方法，后被\textbf{反射}方法取代。
+\end{itemize}
+
+\section{海啸}
+\begin{itemize}
+    \item 两个英文词汇：rage（暴怒）和tidal（潮汐）。
+    \item 海啸传播速度约为$500\mathrm{mile/h}$（或写作）$750\mathrm{km/h}$。
+    \item 最有可能引发海啸的是断层破裂面在海底地表的\textbf{逆冲断层}，但\textbf{任何类型的地震都可能诱发海啸}。
+    \item 产生海啸的三个条件：\textbf{地震发生在深海区、震级大、开阔并逐渐变浅的海岸条件}。
+    \item 海啸是一种特殊的浅水波（波长远大于水深）。
+    \item 印度洋海啸能量大约是\textbf{2000颗广岛原子弹}的能量。
+    \item 海啸按成因分类有：地震海啸、火山海啸、滑坡海啸、陨石海啸。
+    \item 全球海啸主要集中在环太平洋地区和地中海地区。
+    \item 海啸预警的科学依据：
+        \begin{enumerate}
+            \item \textbf{地震波速比海啸波速快}，地震波到达后，海啸波还未到达；
+            \item \textbf{海啸波长较长}，能被卫星等远距离监测到；
+        \end{enumerate}
+    \item 在海滩或近海感受到地震时，应立即向高处逃离。
+\end{itemize}
+
+\newpage
+\appendix
+\appendixpage{}
+\section{第一次习题}
+\begin{enumerate}
+    \item 在中国天坛回音壁，耳朵靠近墙面时才能听到从远处传来的低语。试问听到的声波是什么波。\newline
+    {\kaishu{}在天坛回音壁听到的声波是墙表面的面波。}
+    \item 一个震源深度为$8\rm{km}$的地震，多个区域台站记到的$P_n$波走时曲线的斜率为$0.125\rm{s/km}$，截距为$3\sqrt{7}\rm{s}$，若均匀地壳内$P$波速度已知为$6\rm{km/s}$，求地壳的厚度。\newline
+    {\kaishu{}参考第二章例题中的做法，可求出地壳厚度为$40\rm{km}$。}
+    \item 分开地壳和地幔的界面是1909年被克罗地亚的地震学家发现的，该面为地球的第一大间断面，被称为什么面。\newline
+    {\kaishu{}壳幔界面为莫霍面，又称M面。}
+    \item 哪一年丹麦地震学家英格·莱曼（Inge Lehmann）发现了地球的内核。\newline
+    {\kaishu{}1936年，地球内核被发现。}
+    \item 某一地震的震中距为600公里，那么这个地震属于什么震。\newline
+    {\kaishu{}震中距小于1000公里的为近震，故该地震属于近震。}
+    \item 地壳是地球介质中最硬的部分。请判断该说法的正确性，并说明理由。\newline
+    {\kaishu{}这种说法是错误的。地壳仅仅是指地球的最外固体层，并不是地球最硬的部分。}
+    \item 历史记载全球死亡超过20万人的地震有6次，请问其中有多少次在中国。\newline
+    {\kaishu{}在6次地震中有4次在中国发生。}
+    \item 预计21世纪全球有多少人死于地震。\newline
+    {\kaishu{}预计21世纪全球有1500万人死于地震。}
+    \item 一个地震震源深度为400公里，那么这个地震属于什么地震。\newline
+    {\kaishu{}震源深度大于300公里的为深震，故该地震属于深源地震。}
+    \item 已知$P$波的速度为每秒8km，而$S$波为4，现测得地震两种波的到时差为15秒，则该地震的震中距大约为多少千米。\newline
+    {\kaishu{}由公式\ref{eq:epicentraldistance}，代入数据可算出震中距约为120公里。}
+\end{enumerate}
+
+\newpage
+\section{第二次习题}
+\begin{enumerate}
+    \item 四川西部是地震多发的地区，灾害也严重，为确保人民群众的生命和财产安全，该地区的居民住宅楼有必要按照七级以上地震设防。请判断该说法的正确性，并说明理由。\newline
+    {\kaishu{}建筑的地震设防标准应为烈度，而烈度单位为度，不是级。级是震级的单位，而震级和烈度显然是不相同的概念。故此说法是错误的。}
+    \item 某台站使用伍德-安德森地震仪接收信号。某天，接收到一串地震波，经过分析，知道震中距离台站100km。工作人员测量出这串地震波的峰值波振幅为1cm，求该地震的里氏震级。\newline
+    {\kaishu{}由里氏震级计算方法，单位为微米，而$1\rm{cm} = 10^4 \upmu\rm{m}$,故$A = 1\times10^4$，代入震级公式$M = \log_{10}A$，得出该地震里氏震级为4。}
+    \item 候风地动仪是中国古代观测地震的仪器，是东汉张衡于公元多少年创制的。\newline
+    {\kaishu{}张衡在公元\textbf{132}年创制了候风地动仪。}
+    \item 中国对哪一次地震的预报，在世界上树立了成功预报和减轻震灾的先例，成为世界地震科学史上新的一页。\newline
+    {\kaishu{}1975年2月4日，中国成功预报了\textbf{海城地震}。}
+    \item 全球地震活动最强烈的地震带是哪一个？（全球80\%的浅源地震、90\%的中源地震及全部的深源地震发生在这个地震带上，这是一条对人类危害最大的地震带）\newline
+    {\kaishu{}全球地震活动最强烈的地震带是{\heiti{}环太平洋地震带。}}
+    \item 在下列四个震级（$M_W,M_s,M_L,m_b$）中，只有哪个不属于里氏震级系统。\newline
+    {\kaishu{}$M_W$是矩震级，$M_s$是面波震级，$M_L$是本地震级，$m_b$是P波震级。其中$M_W$矩震级是由地震矩计算出来的，而其他三者都是由地震波振幅计算出来的。故$M_W$不属于里氏震级系统。}
+    \item 震级相差两级，释放的能量相差多少倍。\newline
+    {\kaishu{}由能量与震级的关系$\log_{10}E = 11.8 + 1.5M$可以算出，震级相差两级，释放的能量相差$10^{3.0} = 1000$倍。}
+    \item 在宏观烈度大体相同的条件下，处于大震级远离震中的高耸建筑物的震害比中小级震级近震中距的情况严重得多。请判断该说法的正确性，并说明理由。\newline
+    {\kaishu{}这句话是正确的。由于地震波在传播过程中会衰减，剩下的主要是低频的面波。其振动周期较长，与大楼的固有周期相近。所以处于大震级远离震中的高耸建筑物的震害比中小级震级近震中距的情况严重得多。}
+    \item 同一个地震的震级在不同台站测定的数值可能不一样，所以说，同一个地震的震级可能有多个。请判断该说法的正确性，并说明理由。\newline
+    {\kaishu{}同一地震在不同台站测定数值不同，是偶然误差导致的，一般来说精度在0.3左右。但其震级是唯一确定的。随台站不同而发生变化的是地震的烈度。}
+    \item 某地区有3个地震台A，B，C。地震台A的坐标为(50km, 10km)，B的坐标为(10km, 40km)，C的坐标为(-10km, 10km)。一次它们接收到同一个地震，A、B、C台站的P波和S波的走时差分别为2s，1.5s，1s。已知地震发生在地表，该地区P波和S波的速度分别为5km/s和3km/s。求该地震的震中的坐标。\newline
+    {\kaishu{}由方程\ref{eq:epicentraldistance}可以算出A、B、C三点的震中距分别为40km、30km及20km。以这三点为圆心，震中距为半径作圆，三圆交于一点，即为震中，其坐标为(10km, 10km)。}
+\end{enumerate}
+
+\newpage
+\section{讨论课}
+
+\subsection{学生报告：地震预警}
+\begin{itemize}
+    \item 地震预警存在盲区。
+    \item 深源地震和远震没有必要预警。
+    \item 通常盲区半径约为\bm{$r_s = 60 \,\mathrm{km}$}。
+    \item 地震预警原理是\textbf{P波和S波的速度差}。
+\end{itemize}
+
+\subsection{教师报告：汶川大地震}
+\begin{itemize}
+    \item 1933年，叠溪发生地震，古城消失是地震后山体滑坡的结果。
+    \item \textbf{北极地震比南极多}，因为北极是板块汇聚的地方。
+    \item 同等条件下，\textbf{月球上的地震比地球上严重}，因为月球上重力小。
+    \item 全球有\textbf{6亿人}生活在强地震带上。
+    \item 汶川大地震是青藏高原向东巨大挤压应力持续累积，最终释放的结果。
+\end{itemize}
+\end{document}
